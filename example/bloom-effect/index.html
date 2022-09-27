@@ -33,6 +33,16 @@
           fgRef.current.postProcessingComposer().addPass(bloomPass);
         }, []);
 
+let angle = 0;
+const distance = 1400;
+setInterval(() => {
+        fgRef.cameraPosition({
+          x: distance * Math.sin(angle),
+          z: distance * Math.cos(angle),
+        });
+        angle += Math.PI / 300;
+    }, 10);
+
         return <ForceGraph3D
           ref={fgRef}
           graphData={data}
